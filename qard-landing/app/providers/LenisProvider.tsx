@@ -1,11 +1,8 @@
 "use client";
-import { ReactLenis } from "@studio-freight/react-lenis";
+import { ReactNode } from "react";
 
-export default function LenisProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <ReactLenis root options={{ smooth: true, lerp: 0.09 }}>
-      {children}
-    </ReactLenis>
-  );
+// Simple provider - no smooth scrolling
+export default function SimpleProvider({ children }: { children: ReactNode }) {
+  return <>{children}</>;
 }
 

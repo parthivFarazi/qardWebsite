@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import LenisProvider from "./providers/LenisProvider";
+import SimpleProvider from "./providers/LenisProvider";
 import CustomCursor from "./components/CustomCursor";
 
 const geistSans = Geist({
@@ -29,10 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LenisProvider>
+        <SimpleProvider>
           <CustomCursor />
           {children}
-        </LenisProvider>
+        </SimpleProvider>
       </body>
     </html>
   );

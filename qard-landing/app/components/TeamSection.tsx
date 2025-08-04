@@ -1,4 +1,5 @@
-// app/components/TeamSection.tsx
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import styles from './TeamSection.module.css';
 
 const teamMembers = [
@@ -26,17 +27,47 @@ const teamMembers = [
 ];
 
 export default function TeamSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Only trigger once
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: '50px', // Start loading 50px before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={styles['team-section-overlay']}>
+    <div ref={sectionRef} className={styles['team-section-overlay']}>
       <h2 className={styles['team-title']}>meet our team</h2>
       <div className={styles['team-cards']}>
         {teamMembers.map((member) => (
           <div className={styles['team-card']} key={member.name}>
-            <img
-              src={member.img}
-              alt={member.name}
-              className={styles['team-card-img']}
-            />
+            {isVisible && (
+              <img
+                src={member.img}
+                alt={member.name}
+                className={styles['team-card-img']}
+                loading="lazy"
+                decoding="async"
+                width={96}
+                height={96}
+              />
+            )}
             <a
               href={member.linkedin}
               target="_blank"

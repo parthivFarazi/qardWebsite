@@ -8,9 +8,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background: rgb(0, 0, 0); /* super dark blackish overlay */
-    z-index: 50;  /* ensure it's above your 3D card/canvas */
-    padding-top: 56px;
+    background: rgb(0, 0, 0);
+    z-index: 50;
+    padding: 56px 0 80px 0;
   }
   
   .team-cards {
@@ -22,9 +22,9 @@
   }
   
   .team-card {
-    background: #19191d;
+    background: rgba(25, 25, 29, 0.9);
     border-radius: 24px;
-    box-shadow: 0 6px 48px 0 #0008;
+    box-shadow: 0 6px 48px 0 rgba(0, 0, 0, 0.3);
     padding: 32px 28px 24px 28px;
     width: 340px;
     min-height: 420px;
@@ -33,11 +33,13 @@
     align-items: center;
     position: relative;
     z-index: 100;
-    transition: box-shadow 0.2s;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    border: 1px solid rgba(167, 139, 250, 0.1);
   }
   
   .team-card:hover {
-    box-shadow: 0 8px 64px 0 #a78bfa66, 0 1.5px 3px #a78bfa44;
+    box-shadow: 0 8px 64px 0 rgba(167, 139, 250, 0.3), 0 1.5px 3px rgba(167, 139, 250, 0.2);
+    transform: translateY(-2px);
   }
   
   .team-card-img {
@@ -47,12 +49,12 @@
     border-radius: 50%;
     border: 4px solid #a78bfa;
     margin-bottom: 18px;
-    box-shadow: 0 0 18px #a78bfa55;
-    transition: box-shadow 0.2s;
+    box-shadow: 0 0 18px rgba(167, 139, 250, 0.33);
+    transition: box-shadow 0.2s ease-out;
   }
   
   .team-card:hover .team-card-img {
-    box-shadow: 0 0 40px #a78bfa99;
+    box-shadow: 0 0 40px rgba(167, 139, 250, 0.6);
   }
   
   .team-card-name {
@@ -62,6 +64,7 @@
     text-align: center;
     margin-bottom: 3px;
     text-decoration: none;
+    transition: color 0.2s ease-out;
   }
   
   .team-card-name:hover {
@@ -70,7 +73,7 @@
   }
   
   .team-card-role {
-    color: #a78bfa99;
+    color: rgba(167, 139, 250, 0.6);
     font-weight: 500;
     font-size: 1rem;
     margin-bottom: 10px;
@@ -86,7 +89,7 @@
   .team-card-linkedin {
     color: #a78bfa;
     font-size: 1.7rem;
-    transition: color 0.15s;
+    transition: color 0.2s ease-out;
     margin-top: 4px;
   }
   
@@ -105,15 +108,17 @@
   }
   
   .team-cta {
-    background: #19191d;
+    background: rgba(25, 25, 29, 0.9);
     border-radius: 16px;
     margin-top: 54px;
+    margin-bottom: 20px;
     padding: 26px 20px 20px 20px;
     width: 100%;
     max-width: 580px;
     text-align: center;
     z-index: 101;
-    box-shadow: 0 3px 30px #a78bfa25;
+    box-shadow: 0 3px 30px rgba(167, 139, 250, 0.15);
+    border: 1px solid rgba(167, 139, 250, 0.1);
   }
   
   .team-cta-title {
@@ -136,14 +141,14 @@
     padding: 13px 36px;
     border-radius: 9999px;
     font-size: 1rem;
-    transition: filter 0.13s, background 0.18s;
-    box-shadow: 0 2px 16px #a78bfa55;
+    transition: filter 0.2s ease-out, background 0.2s ease-out;
+    box-shadow: 0 2px 16px rgba(167, 139, 250, 0.33);
     text-decoration: none;
     display: inline-block;
   }
   
   .team-cta-btn:hover {
-    filter: brightness(1.13) drop-shadow(0 0 12px #a78bfa99);
+    filter: brightness(1.13) drop-shadow(0 0 12px rgba(167, 139, 250, 0.6));
     background: linear-gradient(90deg, #b490ff, #7141fd);
   }
   

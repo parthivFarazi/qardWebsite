@@ -1,12 +1,12 @@
 
 .signup-section-bg {
     width: 100vw;
-    min-height: 78vh;
+    min-height: 100vh;
     background: linear-gradient(90deg, #261449 0%, #a78bfa 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30;
+    padding: 60px 30px;
     position: relative;
     z-index: 99;
   }
@@ -48,11 +48,11 @@
     font-weight: 500;
     margin-bottom: 0;
     box-sizing: border-box;
-    transition: box-shadow 0.18s;
+    transition: box-shadow 0.2s ease-out;
   }
   
   .signup-input:focus {
-    box-shadow: 0 0 0 2px #a78bfa77;
+    box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.47);
   }
   
   .signup-checkbox-row {
@@ -86,8 +86,8 @@
     border: none;
     margin-top: 26px;
     cursor: pointer;
-    transition: filter 0.18s, background 0.2s;
-    box-shadow: 0 4px 40px #a78bfa30;
+    transition: filter 0.2s ease-out, background 0.2s ease-out;
+    box-shadow: 0 4px 40px rgba(167, 139, 250, 0.19);
   }
   
   .signup-submit-btn:hover {

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import ScrollKeywordsSection from "./components/ScrollKeywordsSection";
 import ThreeDCard from "./components/ThreeDCard";
 import MissionSection from "./components/MissionStatement";
@@ -11,6 +12,60 @@ import Footer from "./components/Footer";
 import styles from "./components/JoinWaitlistButton.module.css"
 
 export default function Home() {
+  const [cardState, setCardState] = useState<'over' | 'background' | 'hidden'>('over');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Calculate section positions - adjusted for better accuracy
+      const heroEnd = windowHeight; // End of hero section
+      const keywordsEnd = windowHeight * 2; // End of keywords section (second page)
+      const teamStart = windowHeight * 5; // Approximate start of team section
+      const waitlistStart = windowHeight * 7; // Approximate start of waitlist section
+      
+      // Determine card state based on scroll position
+      let newState: 'over' | 'background' | 'hidden';
+      
+      if (scrollY < keywordsEnd) {
+        // First two pages: card over text
+        newState = 'over';
+      } else if (scrollY >= keywordsEnd && scrollY < teamStart) {
+        // Mission, Story, Values sections: card in background
+        newState = 'background';
+      } else if (scrollY >= teamStart && scrollY < waitlistStart) {
+        // Team section: card in background (not hidden)
+        newState = 'background';
+      } else {
+        // Waitlist section: card hidden
+        newState = 'hidden';
+      }
+      
+      // Only update state if it's different to avoid unnecessary re-renders
+      if (newState !== cardState) {
+        setCardState(newState);
+      }
+    };
+
+    // Call once on mount to set initial state
+    handleScroll();
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [cardState]); // Add cardState to dependencies
+
+  const handleJoinWaitlistClick = () => {
+    const el = document.getElementById("waitlist");
+    if (el) {
+      // Smooth scroll to show the scrolling motion
+      el.scrollIntoView({ 
+        behavior: "smooth", 
+        block: "start"
+      });
+    }
+  };
+
   return (
     <div className="w-full min-h-screen bg-black font-sans overflow-x-hidden relative">
       {/* HERO SECTION */}
@@ -18,12 +73,7 @@ export default function Home() {
         {/* Join Waitlist Button */}
         <button
           className={styles.joinWaitlistButton}
-          onClick={() => {
-            const el = document.getElementById("waitlist");
-            if (el) {
-              el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          }}
+          onClick={handleJoinWaitlistClick}
         >
           Join Waitlist
       </button>
@@ -74,33 +124,39 @@ export default function Home() {
       {/* SCROLLING KEYWORDS SECTION */}
       <ScrollKeywordsSection />
 
-      {/* 3D Rotating Card */}
-      <div
-        style={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          width: "34vw",
-          height: "22vw",
-          minWidth: 320,
-          minHeight: 200,
-          maxWidth: 600,
-          maxHeight: 400,
-          transform: "translate(-50%, -50%)",
-          zIndex: 10,
-          pointerEvents: "auto",
-        }}
-      >
-        <ThreeDCard
-          front="/qard-metallic-card.jpg"
-          back="/qard-metallic-card.jpg"
-          width={3.375}
-          height={2.125}
-          thickness={0.33}
-          autoRotate
-          autoRotateSpeed={0.003}
-        />
-      </div>
+      {/* 3D Rotating Card - Dynamic positioning based on scroll */}
+      {cardState !== 'hidden' && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            width: "36vw", // Reduced from 40vw
+            height: "24vw", // Reduced from 28vw
+            minWidth: 360, // Reduced from 400
+            minHeight: 240, // Reduced from 280
+            maxWidth: 650, // Reduced from 700
+            maxHeight: 450, // Reduced from 500
+            transform: "translate(-50%, -50%)",
+            zIndex: cardState === 'over' ? 15 : 5,
+            pointerEvents: "none",
+            opacity: 1,
+            transition: "z-index 0.3s ease-out",
+            overflow: "visible", // Allow card to extend beyond container
+            marginTop: "20px",
+          }}
+        >
+          <ThreeDCard
+            front="/qard-metallic-card.jpg"
+            back="/qard-metallic-card.jpg"
+            width={3.375}
+            height={2.125}
+            thickness={0.33}
+            autoRotate
+            autoRotateSpeed={0.001}
+          />
+        </div>
+      )}
 
       {/* Page Sections */}
       <MissionSection />
