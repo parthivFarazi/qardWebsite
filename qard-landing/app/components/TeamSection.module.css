@@ -1,0 +1,149 @@
+/* TeamSection.module.css */
+
+.team-section-overlay {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgb(0, 0, 0); /* super dark blackish overlay */
+    z-index: 50;  /* ensure it's above your 3D card/canvas */
+    padding-top: 56px;
+  }
+  
+  .team-cards {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .team-card {
+    background: #19191d;
+    border-radius: 24px;
+    box-shadow: 0 6px 48px 0 #0008;
+    padding: 32px 28px 24px 28px;
+    width: 340px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    transition: box-shadow 0.2s;
+  }
+  
+  .team-card:hover {
+    box-shadow: 0 8px 64px 0 #a78bfa66, 0 1.5px 3px #a78bfa44;
+  }
+  
+  .team-card-img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #a78bfa;
+    margin-bottom: 18px;
+    box-shadow: 0 0 18px #a78bfa55;
+    transition: box-shadow 0.2s;
+  }
+  
+  .team-card:hover .team-card-img {
+    box-shadow: 0 0 40px #a78bfa99;
+  }
+  
+  .team-card-name {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 3px;
+    text-decoration: none;
+  }
+  
+  .team-card-name:hover {
+    color: #a78bfa;
+    text-decoration: underline;
+  }
+  
+  .team-card-role {
+    color: #a78bfa99;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .team-card-bio {
+    color: #ccc;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+  
+  .team-card-linkedin {
+    color: #a78bfa;
+    font-size: 1.7rem;
+    transition: color 0.15s;
+    margin-top: 4px;
+  }
+  
+  .team-card-linkedin:hover {
+    color: #fff;
+  }
+  
+  .team-title {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 16px;
+    z-index: 101;
+  }
+  
+  .team-cta {
+    background: #19191d;
+    border-radius: 16px;
+    margin-top: 54px;
+    padding: 26px 20px 20px 20px;
+    width: 100%;
+    max-width: 580px;
+    text-align: center;
+    z-index: 101;
+    box-shadow: 0 3px 30px #a78bfa25;
+  }
+  
+  .team-cta-title {
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+  
+  .team-cta-desc {
+    color: #bbb;
+    margin-bottom: 18px;
+    font-size: 1.07rem;
+  }
+  
+  .team-cta-btn {
+    background: linear-gradient(90deg, #a78bfa, #5f20f7);
+    color: #fff;
+    font-weight: bold;
+    padding: 13px 36px;
+    border-radius: 9999px;
+    font-size: 1rem;
+    transition: filter 0.13s, background 0.18s;
+    box-shadow: 0 2px 16px #a78bfa55;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .team-cta-btn:hover {
+    filter: brightness(1.13) drop-shadow(0 0 12px #a78bfa99);
+    background: linear-gradient(90deg, #b490ff, #7141fd);
+  }
+  

@@ -1,0 +1,32 @@
+.footer {
+    background-color: #0a0a0a;
+    color: white;
+    padding: 1.5rem;
+  }
+  
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .text {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .right a {
+    color: #ccc;
+    transition: color 0.3s;
+  }
+  
+  .right a:hover {
+    color: #a78bfa;
+    text-shadow: 0 0 8px #a78bfa, 0 0 12px #a78bfa;
+  }

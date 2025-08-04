@@ -1,0 +1,24 @@
+.joinWaitlistButton {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    background: none;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 10px 16px;
+    border-radius: 100px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .joinWaitlistButton:hover {
+    opacity: 0.6;
+  }
+  
