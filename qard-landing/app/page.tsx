@@ -66,8 +66,43 @@ export default function Home() {
     }
   };
 
+  const handleLogoClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <div className="w-full min-h-screen bg-black font-sans overflow-x-hidden relative">
+      {/* Logo */}
+      <div 
+        style={{
+          position: 'fixed',
+          top: '24px',
+          left: '24px',
+          zIndex: 99999,
+          cursor: 'pointer',
+          pointerEvents: 'auto',
+        }}
+        onClick={handleLogoClick}
+      >
+        <img 
+          src="/qardlogo2.png" 
+          alt="Qard Logo" 
+          style={{
+            height: '100px',
+            width: 'auto',
+            display: 'block',
+            maxWidth: 'none',
+          }}
+          onError={(e) => {
+            console.error('Logo failed to load:', e);
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+      </div>
+
       {/* HERO SECTION */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
         {/* Join Waitlist Button */}
@@ -146,15 +181,15 @@ export default function Home() {
             marginTop: "20px",
           }}
         >
-          <ThreeDCard
-            front="/qard-metallic-card.jpg"
-            back="/qard-metallic-card.jpg"
-            width={3.375}
-            height={2.125}
-            thickness={0.33}
-            autoRotate
-            autoRotateSpeed={0.001}
-          />
+                                                     <ThreeDCard
+                            front="/qardFinal.jpg"
+                            back="/qardFinal.jpg"
+                            width={3.375}
+                            height={2.125}
+                            thickness={0.33}
+                            autoRotate
+                            autoRotateSpeed={0.001}
+                          />
         </div>
       )}
 

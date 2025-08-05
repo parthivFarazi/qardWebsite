@@ -77,7 +77,7 @@ export default function CardDisplay() {
     >
       <img
         src="/qard-metallic-card.jpg"
-        alt="Qard Metallic Card"
+        alt="Qard Card"
         style={{
           width: '100%',
           height: '100%',

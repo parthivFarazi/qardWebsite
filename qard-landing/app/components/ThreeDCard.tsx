@@ -47,13 +47,13 @@ function CardMesh({ front, back, thickness = 0.5, autoRotate = true, autoRotateS
       <mesh>
         <boxGeometry args={[9.9264, 6.25, 0.1]} />
         {/* 0=right, 1=left, 2=top, 3=bottom, 4=front, 5=back */}
-        <meshStandardMaterial attach="material-4" map={frontTexture} />
-        <meshStandardMaterial attach="material-5" map={backTexture} />
+        <meshBasicMaterial attach="material-4" map={frontTexture} />
+        <meshBasicMaterial attach="material-5" map={backTexture} />
         {/* Sides: deep purple or dark metallic */}
-        <meshStandardMaterial attach="material-0" color="#25124a" />
-        <meshStandardMaterial attach="material-1" color="#25124a" />
-        <meshStandardMaterial attach="material-2" color="#25124a" />
-        <meshStandardMaterial attach="material-3" color="#25124a" />
+        <meshBasicMaterial attach="material-0" color="#25124a" />
+        <meshBasicMaterial attach="material-1" color="#25124a" />
+        <meshBasicMaterial attach="material-2" color="#25124a" />
+        <meshBasicMaterial attach="material-3" color="#25124a" />
       </mesh>
     </group>
   );
