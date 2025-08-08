@@ -186,9 +186,6 @@ npm install
 
 This project is private and proprietary to Qard.
 
-## 📞 Support
-
-For support, email [support@qard.com](mailto:support@qard.com) or create an issue in the repository.
 
 ---
 
