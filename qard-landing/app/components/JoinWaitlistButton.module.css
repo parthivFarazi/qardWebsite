@@ -3,7 +3,7 @@
     top: 24px;
     right: 24px;
     z-index: 9999;
-    background: none;
+    background: #5c39c5; /* Light purple fill */
     color: white;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
@@ -12,14 +12,15 @@
     letter-spacing: 0.08em;
     padding: 10px 16px;
     border-radius: 100px;
-    border: 2px solid #180b3f;
+    border: 2px solid #7c3aed; /* Darker purple ring */
     text-decoration: none;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
   }
   
   .joinWaitlistButton:hover {
-    background: #180b3f;
+    background: #000000; /* Black on hover */
+    border-color: #000000;
     opacity: 1;
   }
   
